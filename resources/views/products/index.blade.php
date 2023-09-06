@@ -33,7 +33,7 @@
             </tbody>
         </table>
         <div class="pagination">
-            {{ $products->render() }}
+            {{ $products->link() }}
         </div>
     @else
         <h4>No hay productos cargados!</h4>
