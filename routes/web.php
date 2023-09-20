@@ -18,3 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/products',[ProductController::class,'index'])->name('products.index');
+// route store
+// route create
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show'); // route show
+// route update
+Route::delete('(products/{product}', [   ProductController::class, 'destroy'])->name('products.destroy'); // route destroy
+// route edit
