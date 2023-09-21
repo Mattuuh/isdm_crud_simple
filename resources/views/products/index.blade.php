@@ -3,6 +3,12 @@
 @section('title', 'Listado de Productos')
 
 @section('content')
+   @if(session('status'))
+      <div class="alert alert-success">
+        {{ session('status') }}
+      </div>
+   @endif
+      <a href="{{ route('products.create') }}" class="btn btn-success">Agregar nuevo producto</a>
     @if ($products->count())
         <table class="table table-striped mt-1">
             <thead class="table-dark">
