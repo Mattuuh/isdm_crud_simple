@@ -49,10 +49,25 @@ class ProductController extends Controller
      }
     
     // Update
-    public function update() {
-        
-    }
-    
+     public function update(Request $request,$id)
+     {
+        //Busqueda del producto
+        $product = Product::findOrFail($id);
+
+        //Validacion de los datos
+        $validated = $request->validate([
+            'name' => 'required|string|max:20',
+            'description' => 'nullable|string|max:255',
+            'unit_price' => 'required|gt:0',
+            'stock' => 'nullable|gt:0',
+        ]);
+
+        //Actualizacion del Producto
+        $product->update($request->all());
+
+        //  Redireccion con un mensaje flash de sesion
+        return redirect()->route('products.index')->with('status', 'Producto actualizado satisfactoriamente!');
+     }
     // Destroy
     public function destroy($id) {
         //Busqueda del producto
