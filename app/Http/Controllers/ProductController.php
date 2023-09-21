@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -16,13 +17,29 @@ class ProductController extends Controller
         ]);
     }
     
+    // Create
     public function create()
     {
         return view(('products.create'));
     }
     
-    public function destroy($id)
-    {
+    // Store
+    public function store() {
+        
+    }
+    
+    // Edit
+    public function edit() {
+        
+    }
+    
+    // Update
+    public function update() {
+        
+    }
+    
+    // Destroy
+    public function destroy($id) {
         //Busqueda del producto
         $product = Product::findOrFail($id);
 
@@ -33,8 +50,8 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('status', 'Producto eliminado satifactoriamente!');
     }
     
-    public function show($id)
-    {
+    // Show
+    public function show($id) {
         $product = Product::findOrFail($id);
         return view('products.show', ['product'=>$product]);
     }
