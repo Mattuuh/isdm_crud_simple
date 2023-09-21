@@ -25,3 +25,4 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 // route update
 Route::delete('(products/{product}', [   ProductController::class, 'destroy'])->name('products.destroy'); // route destroy
 // route edit
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
