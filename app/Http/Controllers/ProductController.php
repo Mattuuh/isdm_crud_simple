@@ -29,9 +29,11 @@ class ProductController extends Controller
     }
     
     // Edit
-    public function edit() {
-        
-    }
+    public function edit($id)
+     {
+        $product = Product::findOrFail($id);
+        return view('products.edit', ['product'=>$product]);
+     }
     
     // Update
     public function update() {
