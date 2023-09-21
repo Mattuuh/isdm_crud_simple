@@ -15,4 +15,9 @@ class ProductController extends Controller
             'products' => DB::table('products')->paginate(10)
         ]);
     }
+    public function create()
+    {
+        return view(('products.create'));
+    }
+
 }
