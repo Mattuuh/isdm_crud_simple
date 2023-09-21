@@ -30,9 +30,12 @@
                         <td>{{ $product->stock }}</td>
                         <td>{{ $product->updated_at }}</td>
                         <td>
-                            <button class="btn btn-success btn-sm">Ver</button>
+                            <a class="btn btn-success btn-sm" href="{{ route('products.show', $product->id) }}">Ver</a>
                             <button class="btn btn-info btn-sm">Editar</button>
-                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                            <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                              @csrf @method('DELETE')
+                              <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
