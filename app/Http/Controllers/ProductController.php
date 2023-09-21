@@ -24,8 +24,21 @@ class ProductController extends Controller
     }
     
     // Store
-    public function store() {
-        
+    public function store(Request $request)
+    {
+        //Validacion de los datos
+        $validated = $request->validate([
+            'name' => 'required|string|max:20',
+            'description' => 'nullable|string|max:255',
+            'unit_price' => 'required|gt:0',
+            'stock' => 'nullable|gt:0',
+        ]);
+
+        //Guardado de los datos
+        Product::create($request->all());
+
+        //Redireccion con un mensaje flash de sesion
+        return redirect()->route('products.index')->with('status','Producto creado satisfactoriamente!');
     }
     
     // Edit
