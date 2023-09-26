@@ -42,7 +42,7 @@
             </tbody>
         </table>
         <div class="pagination">
-            {{ $products->link() }}
+            {{ $products->links() }}
         </div>
     @else
         <h4>No hay productos cargados!</h4>
