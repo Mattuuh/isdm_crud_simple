@@ -10,8 +10,6 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index() {
-        $products = Product::all();
-
         return view('products.index', [
             'products' => DB::table('products')->paginate(10)
         ]);
@@ -20,7 +18,7 @@ class ProductController extends Controller
     // Create
     public function create()
     {
-        return view(('products.create'));
+        return view('products.create');
     }
     
     // Store
