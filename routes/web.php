@@ -2,6 +2,7 @@
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,8 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');// route update
 Route::delete('(products/{product}', [   ProductController::class, 'destroy'])->name('products.destroy'); // route destroy
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');// route edit
-
-
+Route::get('auth/google',[GoogleController::class,'redirectToGoogle']);
+Route::get('/google/callback',[GoogleController::class,'handleGoogleCallback']);
 
 
 
